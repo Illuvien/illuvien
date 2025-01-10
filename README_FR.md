@@ -44,7 +44,7 @@ Vous pouvez démarrer IlluVien en trois étapes simples :
 
 1. **Cloner le dépôt :**
     ```sh
-    git clone https://github.com/arathielagent/illuvien.git
+    git clone https://github.com/Illuvien/illuvien.git
     cd IlluVien
     ```
 

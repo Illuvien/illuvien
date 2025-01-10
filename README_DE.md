@@ -43,7 +43,7 @@ Mit drei einfachen Schritten können Sie IlluVien zum Laufen bringen.
 
 1. **Repository klonen:**
     ```sh
-    git clone https://github.com/arathielagent/illuvien.git
+    git clone https://github.com/Illuvien/illuvien.git
     cd IlluVien
     ```
 

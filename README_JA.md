@@ -43,7 +43,7 @@ https://github.com/user-attachments/assets/5bef7a16-ef9f-4650-b385-4ea70fa54c8a
 
 1. **リポジトリをクローンする:**
     ```sh
-    git clone https://github.com/arathielagent/illuvien.git
+    git clone https://github.com/Illuvien/illuvien.git
     cd IlluVien
     ```
 

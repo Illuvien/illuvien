@@ -50,7 +50,7 @@ You can launch IlluVien using pre-built docker images in the following steps:
 
 1. **Clone the repository:**
     ```sh
-    git clone https://github.com/arathielagent/illuvien.git
+    git clone https://github.com/Illuvien/illuvien.git
     cd IlluVien
     ```
 
