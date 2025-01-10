@@ -1,0 +1,156 @@
+import json
+from typing import Dict, List, Optional
+
+from dotenv import load_dotenv
+from jinja2 import Template
+from pydantic import BaseModel, Field
+
+from ..base import (
+    BaseNodeInput,
+    BaseNodeOutput,
+    VariableOutputBaseNode,
+    VariableOutputBaseNodeConfig,
+)
+from ._utils import LLMModels, ModelInfo, create_messages, generate_text
+
+load_dotenv()
+
+
+class SingleLLMCallNodeConfig(VariableOutputBaseNodeConfig):
+    llm_info: ModelInfo = Field(
+        ModelInfo(model=LLMModels.GPT_4O, max_tokens=16384, temperature=0.7),
+        description="The default LLM model to use",
+    )
+    system_message: str = Field(
+        "You are a helpful assistant.", description="The system message for the LLM"
+    )
+    user_message: str = Field(
+        "",
+        description="The user message for the LLM, serialized from input_schema",
+    )
+    few_shot_examples: Optional[List[Dict[str, str]]] = None
+    url_variables: Optional[Dict[str, str]] = Field(
+        None,
+        description="Optional mapping of URL types (image, video, pdf) to input schema variables for Gemini models",
+    )
+
+
+class SingleLLMCallNodeInput(BaseNodeInput):
+    """
+    We allow any/all extra fields, so that the entire dictionary passed in
+    is available in `input.model_dump()`.
+    """
+
+    class Config:
+        extra = "allow"
+
+
+class SingleLLMCallNodeOutput(BaseNodeOutput):
+    pass
+
+
+class SingleLLMCallNode(VariableOutputBaseNode):
+    """
+    Node type for calling an LLM with structured i/o and support for params in system prompt and user_input.
+    """
+
+    name = "single_llm_call_node"
+    display_name = "Single LLM Call"
+    config_model = SingleLLMCallNodeConfig
+    input_model = SingleLLMCallNodeInput
+    output_model = SingleLLMCallNodeOutput
+
+    def setup(self) -> None:
+        return super().setup()
+
+    async def run(self, input: BaseModel) -> BaseModel:
+        # Grab the entire dictionary from the input
+        raw_input_dict = input.model_dump()
+
+        # Render system_message
+        system_message = Template(self.config.system_message).render(raw_input_dict)
+        system_message += f"\nMake sure the output is a JSON Object like this: {self.config.output_schema}"
+
+        try:
+            # If user_message is empty, dump the entire raw dictionary
+            if not self.config.user_message.strip():
+                user_message = json.dumps(raw_input_dict, indent=2)
+            else:
+                user_message = Template(self.config.user_message).render(
+                    **raw_input_dict
+                )
+        except Exception as e:
+            print(f"[ERROR] Failed to render user_message {self.name}")
+            print(
+                f"[ERROR] user_message: {self.config.user_message} with input: {raw_input_dict}"
+            )
+            raise e
+
+        messages = create_messages(
+            system_message=system_message,
+            user_message=user_message,
+            few_shot_examples=self.config.few_shot_examples,
+        )
+
+        model_name = LLMModels(self.config.llm_info.model).value
+
+        # Process URL variables if they exist and we're using a Gemini model
+        url_vars = None
+        if model_name.startswith("gemini") and self.config.url_variables:
+            url_vars = {}
+            if "file" in self.config.url_variables:
+                # Split the input variable reference (e.g. "input_node.video_url")
+                node_id, var_name = self.config.url_variables["file"].split(".")
+                # Get the value from the input using the node_id
+                if node_id in raw_input_dict and var_name in raw_input_dict[node_id]:
+                    # Always use image_url format regardless of file type
+                    url_vars["image"] = raw_input_dict[node_id][var_name]
+
+        assistant_message_str = await generate_text(
+            messages=messages,
+            model_name=model_name,
+            temperature=self.config.llm_info.temperature,
+            max_tokens=self.config.llm_info.max_tokens,
+            json_mode=True,
+            url_variables=url_vars,
+        )
+        assistant_message_dict = json.loads(assistant_message_str)
+
+        # Validate and return
+        assistant_message = self.output_model.model_validate(assistant_message_dict)
+        return assistant_message
+
+
+if __name__ == "__main__":
+    import asyncio
+
+    from pydantic import create_model
+
+    async def test_llm_nodes():
+        # Example 1: Simple test case with a basic user message
+        simple_llm_node = SingleLLMCallNode(
+            name="WeatherBot",
+            config=SingleLLMCallNodeConfig(
+                llm_info=ModelInfo(
+                    model=LLMModels.GPT_4O, temperature=0.1, max_tokens=100
+                ),
+                system_message="This is a simple test prompt for {{ Input.your_name }}.",
+                user_message="Hello, my name is {{ Input.your_name }}. I want to ask: {{ Input.user_message }}",
+                output_schema={"response": "str", "what_was_my_name_again?": "str"},
+            ),
+        )
+
+        simple_input = create_model(
+            "SimpleInput",
+            your_name=(str, ...),
+            user_message=(str, ...),
+            __base__=BaseNodeOutput,
+        ).model_validate(
+            {"your_name": "Alice", "user_message": "What is the weather like today?"}
+        )
+
+        print("[DEBUG] Testing simple_llm_node now...")
+        simple_output = await simple_llm_node({"Input": simple_input})
+        print("[DEBUG] Test Output from single_llm_call:", simple_output)
+
+    asyncio.run(test_llm_nodes())
