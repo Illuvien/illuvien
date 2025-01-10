@@ -17,25 +17,35 @@
 </p>
 
 
-https://framerusercontent.com/assets/nVQqbeL3xISHsP9piF1JuhDCGDk.mp4
+<video width="100%" controls>
+  <source src="https://framerusercontent.com/assets/1KtWQHHaHvXwHOfu2VPCwn9MvU.mp4" type="video/mp4">
+</video>
 
 # ✨ Core Benefits
 
 ## Modular Building Blocks
 
-https://github.com/user-attachments/assets/6442f0ad-86d8-43d9-aa70-e5c01e55e876
+<video width="100%" controls>
+  <source src="https://framerusercontent.com/assets/nVQqbeL3xISHsP9piF1JuhDCGDk.mp4" type="video/mp4">
+</video>
 
 ## Debug at Node Level:
 
-https://framerusercontent.com/assets/tbWDWCK9JWPYnJGIZ3bQ1aPskus.mp4
+<video width="100%" controls>
+  <source src="https://framerusercontent.com/assets/tbWDWCK9JWPYnJGIZ3bQ1aPskus.mp4" type="video/mp4">
+</video>
 
 ## Evaluate Final Performance
-https://framerusercontent.com/assets/NsTAZLdMViMPStfi1MJVhF9MKs0.mp4
+
+<video width="100%" controls>
+  <source src="https://framerusercontent.com/assets/NsTAZLdMViMPStfi1MJVhF9MKs0.mp4" type="video/mp4">
+</video>
 
 ## Coming soon: Self-improvement
 
-https://framerusercontent.com/assets/drvJ0rENEGY7aGKYKXP2KP9XpFE.mp4
-
+<video width="100%" controls>
+  <source src="https://framerusercontent.com/assets/drvJ0rENEGY7aGKYKXP2KP9XpFE.mp4" type="video/mp4">
+</video>
 
 # 🕸️ Why IlluVien?
 
@@ -81,8 +91,6 @@ Set up is completed. Click on "New Spur" to create a workflow, or start with one
 5. **[Optional] Manage your LLM provider keys from the app:**
 
    Once IlluVien app is running you can manage your LLM provider keys through the portal:
-
-   <img width="1913" alt="image" src="https://github.com/user-attachments/assets/32fe79f1-f518-4df5-859c-1d1c0fc0570e" />
 
    Select API keys tab
 
@@ -153,7 +161,6 @@ IlluVien only works with models that support structured-output and json mode. Mo
 
 You can support us in our work by leaving a star! Thank you!
 
-![star](https://github.com/user-attachments/assets/71f65273-6755-469d-be44-087bb89d5e76)
 
 # 🗺️ Roadmap
 
