@@ -21,6 +21,10 @@
   <source src="https://framerusercontent.com/assets/1KtWQHHaHvXwHOfu2VPCwn9MvU.mp4" type="video/mp4">
 </video>
 
+[Watch Video](https://framerusercontent.com/assets/1KtWQHHaHvXwHOfu2VPCwn9MvU.mp4)
+[![Watch the Video](https://via.placeholder.com/600x400?text=Video+Thumbnail)](https://framerusercontent.com/assets/1KtWQHHaHvXwHOfu2VPCwn9MvU.mp4)
+
+
 # ✨ Core Benefits
 
 ## Modular Building Blocks
