@@ -10,7 +10,7 @@
   <a href="./README_ES.md"><img alt="README en espagnol" src="https://img.shields.io/badge/Español-blue"></a>
 </p>
 
-https://github.com/user-attachments/assets/9128885b-47ba-4fc6-ab6b-d567f52e332c
+![](/assets/Hero.gif)
 
 #
 
@@ -18,19 +18,19 @@ https://github.com/user-attachments/assets/9128885b-47ba-4fc6-ab6b-d567f52e332c
 
 ## Blocs de construction modulaires
 
-https://github.com/user-attachments/assets/6442f0ad-86d8-43d9-aa70-e5c01e55e876
+![](/assets/Blocks.gif)
 
 ## Débogage au niveau des nœuds
 
-https://github.com/user-attachments/assets/6e82ad25-2a46-4c50-b030-415ea9994690
+![](/assets/Visualization.gif)
 
 ## Évaluer la performance finale
 
-https://github.com/user-attachments/assets/4dc2abc3-c6e6-4d6d-a5c3-787d518de7ae
+![](/assets/evals.gif)
 
 ## Bientôt disponible : auto-amélioration
 
-https://github.com/user-attachments/assets/5bef7a16-ef9f-4650-b385-4ea70fa54c8a
+![](/assets/Optimization.gif)
 
 # 🕸️ Pourquoi IlluVien ?
 
