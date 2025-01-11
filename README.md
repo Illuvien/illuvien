@@ -16,40 +16,24 @@
   </a>
 </p>
 
-
-<video width="100%" controls>
-  <source src="https://framerusercontent.com/assets/1KtWQHHaHvXwHOfu2VPCwn9MvU.mp4" type="video/mp4">
-</video>
-
-[Watch Video](https://framerusercontent.com/assets/1KtWQHHaHvXwHOfu2VPCwn9MvU.mp4)
-[![Watch the Video](https://via.placeholder.com/600x400?text=Video+Thumbnail)](https://framerusercontent.com/assets/1KtWQHHaHvXwHOfu2VPCwn9MvU.mp4)
-
-
+![](/assets/Hero.gif)
 # ✨ Core Benefits
 
 ## Modular Building Blocks
 
-<video width="100%" controls>
-  <source src="https://framerusercontent.com/assets/nVQqbeL3xISHsP9piF1JuhDCGDk.mp4" type="video/mp4">
-</video>
+![](/assets/Blocks.gif)
 
 ## Debug at Node Level:
 
-<video width="100%" controls>
-  <source src="https://framerusercontent.com/assets/tbWDWCK9JWPYnJGIZ3bQ1aPskus.mp4" type="video/mp4">
-</video>
+![](/assets/Visualization.gif)
 
 ## Evaluate Final Performance
 
-<video width="100%" controls>
-  <source src="https://framerusercontent.com/assets/NsTAZLdMViMPStfi1MJVhF9MKs0.mp4" type="video/mp4">
-</video>
+![](/assets/evals.gif)
 
 ## Coming soon: Self-improvement
 
-<video width="100%" controls>
-  <source src="https://framerusercontent.com/assets/drvJ0rENEGY7aGKYKXP2KP9XpFE.mp4" type="video/mp4">
-</video>
+![](/assets/Optimization.gif)
 
 # 🕸️ Why IlluVien?
 
