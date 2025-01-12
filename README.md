@@ -11,10 +11,11 @@
 </p>
 
 <p align="center">
-  <a href="https://discord.gg/7Spn7C8A5F">
-    <img alt="Join Our Discord" src="https://img.shields.io/badge/Discord-7289DA.svg?style=for-the-badge&logo=discord&logoColor=white">
+  <a href="https://t.me/#">
+    <img alt="Join Our Telegram" src="https://img.shields.io/badge/Telegram-26A5E4.svg?style=for-the-badge&logo=telegram&logoColor=white">
   </a>
 </p>
+
 
 ![](/assets/Hero.gif)
 # ✨ Core Benefits
