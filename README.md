@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="https://t.me/#">
+  <a href="https://t.me/illuviendev">
     <img alt="Join Our Telegram" src="https://img.shields.io/badge/Telegram-26A5E4.svg?style=for-the-badge&logo=telegram&logoColor=white">
   </a>
 </p>
